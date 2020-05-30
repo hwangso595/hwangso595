@@ -1,0 +1,27 @@
+:root {
+    --background-welcome: #3b3b3b;
+    --welcome-img: url('/images/locust-tree-1193532-639x479.jpg')
+}
+
+#welcome-section {
+    display: block;
+    position: relative;
+    z-index: -1;
+    height: 100vh;
+    
+    background-color: var(--background-welcome);
+    text-align: center;
+}
+#welcome-section::after {
+    content:'';
+    background-image: var(--welcome-img);
+    background-size: cover;
+    opacity: 0.3;
+    filter: blur(2px);
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+}

@@ -1,0 +1,112 @@
+@import './shared/navbar.css';
+@import './shared/welcome.css';
+@import './shared/fonts.css';
+@import './shared/projects.css';
+
+:root {
+    --main-red: #913e48;
+    --main-hover: #ff6b6b;
+    --main-gray: #464757;
+    --background-projects: #464a81;
+    --transition-speed: 260ms;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+* {
+    box-sizing: border-box;
+}
+body {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    font-size: 10px;
+    font-family: 'Montserrat', Serif;
+    color: white;
+}
+
+h1 {
+    font-size: 4rem;
+    font-weight: 400;
+    margin: 1rem;
+}
+h2 {
+    font-size: 3rem;
+    font-weight: 400;
+    margin: 1rem;
+}
+section {
+    width: 100%;
+}
+a {
+    color: white;
+    text-decoration: none;
+}
+@media (max-width: 500px) {
+    #nav-bar {
+        justify-content: center;
+    }
+}
+
+#header {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#contacts {
+    background-color: var(--main-gray);
+    padding: 6rem 1rem 3rem 1rem;
+    text-align: center;
+}
+#contact-header {
+    display: flex;
+    flex-direction: column;
+
+}
+
+#contacts p {
+    font-size: 1.5rem;
+    margin: 0;
+}
+#reference i { 
+    width: 30px;
+    height: 30px;
+}
+#contact {
+    display: flex;
+    justify-content: center;
+    padding: 3rem;
+}
+#contact a {
+    color: white;
+    font-size: 2rem;
+    margin: 0 2rem;
+    transition: transform 200ms ease-out;
+}
+#contact a:hover {
+    transform: translate(0, 10px);
+}
+footer { 
+    background-color: var(--main-gray);
+    border-top: 2px solid var(--main-red);
+    padding: 0.3rem;
+}
+footer a {
+    line-height: 2em;
+    margin: 0;
+    font-size: 1rem;
+}
+@media (max-width: 500px) {
+    #contacts {
+        padding: 5rem 0.4rem;
+    }
+    #contacts h2 {
+        font-size: 2.5rem;
+    }
+    #contact a {
+        font-size: 1.5rem;
+    }
+}

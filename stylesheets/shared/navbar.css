@@ -1,0 +1,34 @@
+#navbar {
+    position: fixed;
+    display: flex;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4rem;
+    background-color: var(--main-red);
+    color: white;
+    justify-content: flex-end;
+    align-items: center;
+    z-index: 1;
+}
+#nav {
+    display: flex;
+    width: 500px;
+    justify-content: space-evenly;
+    list-style-type: none;
+}
+#nav li {
+    color: white;
+    height: 100%;
+    text-align: center;
+    font-size: 2em;
+
+}
+
+#nav a {
+    transition: color var(--transition-speed);
+}
+
+#nav a:hover {
+    color: #7388b9;
+}
