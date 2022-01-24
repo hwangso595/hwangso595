@@ -4,47 +4,130 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio</title>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"/> 
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.0/css/all.css"/> 
   <link rel="stylesheet" href="/stylesheets/main.css"/> 
+  <script src="animations.js" defer></script>
 </head>
 <body>
   <header>
     <nav id="navbar">
       <ul id="nav">
         <li><a href="#welcome-section">Home</a></li>
-        <li><a href="#projects">Work</a></li>
+        <li><a href="#work-exp">Work</a></li>
+        <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li><a href="/files/Resume - Software Developer.pdf" download>Resume</a></li>
+        <li><a href="/files/Resume - Software Developer.pdf" download>Resume <i class="fas fa-download"></i></a></li>
       </ul>
     </nav>
   </header>
   <section id="welcome-section">
     <div id="header">
       <h1>Sung Ha Hwang</h1>
-      <h2>A Web Developer</h2>
+      <h2>Software Developer</h2>
     </div>
+    <div class="scroll-down"><i class="fas fa-mouse fa-2x" style="margin-bottom:3px;"></i><i class="fas fa-chevron-down"></i></div>
+  </section>
+  <section id="work-exp">
+    <header>Work Experience</header>
+    <div id="project-grid">
+      <div class="work-tile">
+        <div class="work-box">
+          <p class="work-title">Java Developer - CGI</p>
+          <img src="/images/cgi-logo-430.png"/>
+        </div>
+        <div class="work-desc">
+          <p class="work-dur">September 14, 2020 ~ Apr 30, 2021 </p>
+          <p>hello</p>
+          <div class="work-tags"><p>Spring Boot</p><p>MySQL</p><p>Confluence</p><p>Jira</p></div>
+        </div>
+      </div>
   </section>
   <section id="projects">
     <header>Projects</header>
+    
     <div id="project-grid">
       <div class="project-tile">
+        <img src="/images/68747470733a2f2f692e696d6775722e636f6d2f653635306d65542e706e67.png">
+        <div class="project-details">
+          <div class="link-contain">
+            <a href="https://github.com/hwangso595/chessbot" target="blank_" class="link link1"><span><i class="fab fa-github"></i></span> Github <span>&gt;<span></span></a>
+          </div>
+          <hr/>
+          <p class="project-desc">A Chess AI implementation of AlphaGo Zero by Deepmind with chess UI.</p>
+        </div>
+        <div class="tags"><p>Flask</p><p>Tensorflow</p><p>HTML</p><p>CSS</p></div>
+        <p><span>#</span> Chess ML AI </p>
+      </div>
+      <div class="project-tile">
+        <img src="images/mobilegrocery.png">
+          <p><span>#</span> Grocery Mobile App</p>
+        </img>
+        <div class="project-details">
+          <div class="link-contain">
+            <a href="https://github.com/hwangso595/ml_sandbox" target="blank_" class="link link1"><span><i class="fab fa-github"></i></span> Github <span>&gt;<span></span></a>
+          </div>
+          <hr/>
+          <div class="project-desc">
+            <p>Mobile app to handle grcery. Group project for CSCB07 by Aya B., Aniqa K., Rowan Z., Yuehang G., and Me.<br/> Store owners can: Sign up/log in store accounts, list products, and mark orders as complete<br/>
+            <p>Customers can: Sign up/log in customers, see list of stores and make orders for store owners to fulfill.</p>
+          </div>
+        </div>
+        <div class="tags"><p>Android Studios</p><p>Firebase Realtme Database</p><p>Java</p></div>
+        
+      </div>
+      <div class="project-tile">
+        <img src="/images/150624553-33716301-ac8c-4e16-9c14-897a8a55beca.gif">
+        
+        <div class="project-details">
+          <div class="link-contain">
+            <a href="https://github.com/hwangso595/ml_sandbox" target="blank_" class="link link1"><span><i class="fab fa-github"></i></span> Github <span>&gt;<span></span></a>
+          </div>
+          <hr/>
+          <p class="project-desc">Contains small to mid scaled projects about machine learning.</p>
+        </div>
+        <div class="tags"><p>Python</p><p>Tensorflow</p></div>
+        <p><span>#</span> Machine Learning Sandbox </p>
+      </div>
+      <div class="project-tile">
+        <img src="/images/othello.png">
+        <div class="project-details">
+          <div class="link-contain">
+            <a href="https://github.com/hwangso595/othollo" target="blank_" class="link link1"><span><i class="fab fa-github"></i></span> Github <span>&gt;<span></span></a>
+            <a href="https://optimistic-lichterman-8158db.netlify.app/" target="blank_" class="link link2"><span><i class="fas fa-globe"></i></span> View page <span>&gt;<span></span></a>
+          </div>
+          <hr/>
+          <p class="project-desc">Play the board game Othello online.</p>
+        </div>
+        <div class="tags"><p>React</p><p>Node.js</p><p>Socket.IO</p><p>HTML</p><p>CSS</p></div>
+        <p><span>#</span> Othello Online</p>
+      </div>
+      <div class="project-tile">
         <img src="/images/PavvS4m.png">
-        <a href="https://codepen.io/hwangso595/pen/jOEaRKJ" target="blank_" class="link link1"><span><i class="fab fa-codepen"></i></span> Codepen <span>&gt;<span></span></a>
-        <a href="https://codepen.io/hwangso595/full/jOEaRKJ" target="blank_" class="link link2"><span><i class="fas fa-globe"></i></span> View page <span>&gt;<span></span></a>
+          <div class="project-details">
+            <div class="link-contain">
+              <a href="https://codepen.io/hwangso595/pen/jOEaRKJ" target="blank_" class="link link1"><span><i class="fab fa-codepen"></i></span> Codepen <span>&gt;<span></span></a>
+              <a href="https://codepen.io/hwangso595/full/jOEaRKJ" target="blank_" class="link link2"><span><i class="fas fa-globe"></i></span> View page <span>&gt;<span></span></a>
+            </div>
+            <hr/>
+            <p class="project-desc">HTML and CSS practice for a product landing page.</p>
+          </div>
+          <div class="tags"><p>HTML</p><p>CSS</p></div>
         <p><span>#</span> Product Landing Page </p>
       </div>
       <div class="project-tile">
         <img src="/images/quotes.png">
-        <a href="https://github.com/hwangso595/random-quote-machine" target="blank_" class="link link1"><span><i class="fab fa-github"></i></span> Github <span>&gt;<span></span></a>
-        <a href="https://romantic-kalam-74f838.netlify.app/" target="blank_" class="link link2"><span><i class="fas fa-globe"></i></span> View page <span>&gt;<span></span></a>
+        <div class="project-details">
+          <div class="link-contain">
+            <a href="https://github.com/hwangso595/random-quote-machine" target="blank_" class="link link1"><span><i class="fab fa-github"></i></span> Github <span>&gt;<span></span></a>
+            <a href="https://romantic-kalam-74f838.netlify.app/" target="blank_" class="link link2"><span><i class="fas fa-globe"></i></span> View page <span>&gt;<span></span></a>
+          </div>
+          <hr/>
+          <p class="project-desc">Generates random quotes fetched from a public json file.</p>
+        </div>
+        <div class="tags"><p>React</p><p>SCSS</p></div>
         <p><span>#</span> Random Quotes</p>
       </div>
-      <div class="project-tile">
-        <img src="/images/othello.png">
-        <a href="https://github.com/hwangso595/othollo" target="blank_" class="link link1"><span><i class="fab fa-github"></i></span> Github <span>&gt;<span></span></a>
-        <a href="https://optimistic-lichterman-8158db.netlify.app/" target="blank_" class="link link2"><span><i class="fas fa-globe"></i></span> View page <span>&gt;<span></span></a>
-        <p><span>#</span> Othello Online</p>
-      </div>
+      
     </div>
   </section>
   <section id="contacts">

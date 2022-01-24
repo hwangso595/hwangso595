@@ -17,19 +17,23 @@
 }
 #project-grid {
     display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     width: 100%;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     margin: auto;
     grid-gap: 20px;
 }
 .link {
-    position: absolute;
-    opacity: 0;
     padding: 0.4rem;
-    width: 10rem;
+    min-width: 10rem;
+    margin: 0.4rem;
+    margin-top: 0;
+    border-color: white;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 3px;
     background-color: var(--main-gray);
     transition: opacity var(--transition-speed) ease;
-    transform: translate(-50%, -50%);
+    z-index: -1;
 }
 .link span {
     opacity: 0;
@@ -40,13 +44,13 @@
 .link:hover span {
     opacity: 1;
 }
-.link1 {
-    top: 30%;
-    left: 50%;
-}
-.link2 {
-    top: 50%;
-    left: 50%;
+
+.link-contain {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 0.4rem;
+    width: 100%;
+    justify-content: space-evenly;
 }
 
 .project-tile {
@@ -56,7 +60,38 @@
     flex-direction: column;
     background-color: var(--main-gray);
     color: white;
+    height: 320px;
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
+    -ms-transition: .5s;
+    -o-transition: .5s;
+    transition: .2s ease-out;
 }
+
+.project-details {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: white;
+    transition: opacity var(--transition-speed) ease;
+    opacity: 0;
+}
+.project-details > hr {
+    margin-top: 0;
+}
+.project-desc {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    text-align: start;
+}
+.project-desc > * {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
 .project-tile img {
     height: 250px;
     object-fit: cover;
@@ -65,6 +100,24 @@
 .project-tile p {
     margin: 10px;
 }
+.tags {
+    position: absolute;
+    display: flex;
+    justify-content: left;
+    width: 100%;
+    font-size: 10px;
+    bottom: 70px;
+}
+.tags > p{
+    background-color: var(--main-hover);
+    border-radius: 0.2rem;
+    padding: 0.2rem;
+    margin:10px 0 10px 10px;
+    color: white;
+}
+.project-tile :hover {
+    cursor: pointer;
+}
 .project-tile p span {
     position: relative;
     top: 10%;
@@ -72,17 +125,16 @@
     font-size: 2rem;
     transition: color var(--transition-speed) ease;
 }
-.project-tile:hover p span{
+.project-tile.detailed p span  {
     color: var(--main-hover);
 }
-.project-tile:hover .link {
+.project-tile.detailed .link {
+    opacity: 0.9;
+    z-index: 1;
+}
+.project-tile.detailed .project-details {
     opacity: 0.9;
 }
-
-.project-tile:hover img {
-    opacity: 0.2;
-}
-
-#projects button:hover{
-    background-color: var(--main-hover);
+.project-tile.detailed img {
+    opacity: 0.05;
 }

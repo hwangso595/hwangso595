@@ -2,12 +2,15 @@
 @import './shared/welcome.css';
 @import './shared/fonts.css';
 @import './shared/projects.css';
+@import './shared/works.css';
 
 :root {
     --main-red: #913e48;
     --main-hover: #ff6b6b;
     --main-gray: #464757;
     --background-projects: #464a81;
+    --background-works: #233b63;
+    --background-works-tile: #3a323b;
     --transition-speed: 260ms;
 }
 
@@ -55,7 +58,14 @@ a {
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
+.scroll-down {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+}
 #contacts {
     background-color: var(--main-gray);
     padding: 6rem 1rem 3rem 1rem;
@@ -83,7 +93,7 @@ a {
 #contact a {
     color: white;
     font-size: 2rem;
-    margin: 0 2rem;
+    margin: 1rem 2rem;
     transition: transform 200ms ease-out;
 }
 #contact a:hover {
@@ -99,7 +109,7 @@ footer a {
     margin: 0;
     font-size: 1rem;
 }
-@media (max-width: 500px) {
+@media (max-width: 600px) {
     #contacts {
         padding: 5rem 0.4rem;
     }
@@ -108,5 +118,20 @@ footer a {
     }
     #contact a {
         font-size: 1.5rem;
+    }
+    #contact {
+        flex-direction: column;
+    }
+    #navbar {
+        justify-content: center;
+    }
+    .link span {
+        opacity: 1;
+    }
+}
+
+@media (hover: none) {
+    .link span {
+        opacity: 1;
     }
 }
