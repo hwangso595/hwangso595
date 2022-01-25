@@ -18,20 +18,19 @@
 
 .work-tile {
     position: relative;
+    box-sizing: border-box;
     display: flex;
-    height: 300px;
+    min-height: 300px;
     font-size: 2em;
-    width: auto-fill;
-    margin: 10px;
+    width: 100%;
     background-color:  var(--main-gray);
     text-align: left;
 }
 .work-tags {
-    position: absolute;
     display: flex;
-    justify-content: right;
+    flex-wrap: wrap;
+    margin-top: auto;
     font-size: 10px;
-    bottom: 10px;
 }
 .work-tags > p{
     background-color: var(--main-hover);
@@ -44,24 +43,26 @@
     
     width: 250px;
     height: 100%;
+    padding: 0 10px 10px 10px;
     display: flex;
     flex-direction: column;
-    text-align: center;
+    justify-content: center;
 }
 .work-title{
     background-color: var(--main-gray);
-    box-sizing: border-box;
     margin: auto;
     height: 50px;
     padding: 15px 0;
 }
 .work-box img{
     max-height: 100%;
-    margin: 10px;
+    max-width: 100%;
     background-color: white;
 }
 .work-desc {
     position: relative;
+    display:flex;
+    flex-direction: column;
     background-color: var(--background-works-tile);
     flex-grow: 1;
     margin: 10px;

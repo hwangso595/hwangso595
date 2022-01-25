@@ -16,9 +16,10 @@
 
 html {
     scroll-behavior: smooth;
-}
-* {
     box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 body {
     position: relative;
@@ -125,11 +126,28 @@ footer a {
     #navbar {
         justify-content: center;
     }
+    #nav {
+        flex-direction: column;
+    }
+    #nav li {
+        margin: 0.5em;
+    }
     .link span {
         opacity: 1;
     }
+    .work-box {
+        width: 100%;
+    }
+    .work-tile {
+        flex-direction: column;
+    }
+    #project-grid {
+        grid-template-columns: 1fr;
+    }
+    #work-grid{ 
+        grid-template-columns: 1fr;
+    }
 }
-
 @media (hover: none) {
     .link span {
         opacity: 1;

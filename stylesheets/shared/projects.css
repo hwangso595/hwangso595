@@ -94,6 +94,7 @@
 
 .project-tile img {
     height: 250px;
+    width: 100%;
     object-fit: cover;
     transition: opacity var(--transition-speed) ease;
 }
