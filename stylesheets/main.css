@@ -40,6 +40,9 @@ h2 {
     font-weight: 400;
     margin: 1rem;
 }
+p {
+    margin: 0;
+}
 section {
     width: 100%;
 }
@@ -123,14 +126,18 @@ footer a {
     #contact {
         flex-direction: column;
     }
+    #nav-mobile {
+        display: block;
+    }
     #navbar {
+        flex-direction: column;
         justify-content: center;
     }
     #nav {
+        top: -700px;
         flex-direction: column;
-    }
-    #nav li {
-        margin: 0.5em;
+        justify-content: center;
+        margin: 0;
     }
     .link span {
         opacity: 1;
@@ -146,6 +153,9 @@ footer a {
     }
     #work-grid{ 
         grid-template-columns: 1fr;
+    }
+    #nav.expanded {
+        top: 0;
     }
 }
 @media (hover: none) {
