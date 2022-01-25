@@ -30,7 +30,8 @@
     right: 2px;
 }
 #nav {
-    position: relative;
+    position: absolute;
+    left: 0;
     top: 0;
     display: flex;
     flex-wrap: wrap;
