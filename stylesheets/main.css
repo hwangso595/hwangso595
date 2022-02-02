@@ -101,7 +101,7 @@ a {
     transition: transform 200ms ease-out;
 }
 #contact a:hover {
-    transform: translate(0, 10px);
+    transform: translate(0, 5px);
 }
 footer { 
     background-color: var(--main-gray);
