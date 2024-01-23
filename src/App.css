@@ -1,0 +1,67 @@
+#home {
+  background-size: cover;
+  background-position: center center;
+  display: -webkit-box;
+  display: -webkit-flex;
+   display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+   align-items: center;
+  position: relative;
+  text-align: center;
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+
+#home hr {
+width: 82px;
+margin-top: 32px;
+}
+
+.navbar-toggler {
+  position: fixed;
+  display: block;
+  z-index: 10;
+  top: 20px;
+  right: 46px;
+  height: 26px;
+  width: 26px;
+}
+
+.navbar-toggler>span, .navbar-toggler>span::before, .navbar-toggler>span::after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: var(--bs-dark);
+  transition-duration: .25s;
+}
+
+.navbar-toggler>span::before {
+  content: '';
+  top: -8px;
+}
+.navbar-toggler>span::after {
+  content: '';
+  top: 8px;
+}
+
+.nav-active .navbar-toggler>span {
+  transform: rotate(45deg);
+}
+
+.nav-active .navbar-toggler>span::after {
+  top: 0;
+  transform: rotate(90deg);
+  background: var(--bs-dark);
+}
+
+.nav-active .navbar-toggler>span::before {
+  top: 0;
+  transform: rotate(0);
+  background: var(--bs-dark);
+}
+
+

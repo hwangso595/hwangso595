@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap');
+
+body {
+  background: #ffffff;
+  font-family: 'Work Sans', sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-style: normal;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+}
+
+h1 {
+  font-size: 62px;
+  padding-bottom: 14px;
+  margin-bottom: 0px;
+}
+
+h2 {
+  font-size: 32px;
+  line-height: 46px;
+}
+
+h3 {
+  font-size: 26px;
+}
+
+h4 {
+  color: #666;
+  font-size: 20px;
+  font-weight: normal;
+  letter-spacing: 2px;
+}
+
+p {
+  color: #777;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 26px;
+  letter-spacing: 0.2px;
+}
+
+strong {
+  font-weight: 400;
+}
+
+.btn-success:focus {
+  background-color: #000;
+  border-color: transparent;
+}
+
+
+html{
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: #4d638c;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  text-decoration: none !important;
+}
+a:hover, a:active, a:focus {
+  color: #4d638c;
+  outline: none;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#portfolio,
+#about,
+#blog,
+#contact,
+#single-project,
+#blog-single-post,
+#work {
+  padding-top: 80px;
+  padding-bottom: 120px;
+}
+
+.section-title {
+  position: relative;
+  padding-bottom: 62px;
+  text-align: center;
+}
+
+.section-title h3 {
+  color: #555;
+  font-weight: 400;
+  letter-spacing: 4px;
+}
+
+@media (max-width: 767px) {
+  h1 {
+    font-size: 38px;
+  }
+
+  h2 {
+    font-size: 32px;
+    line-height: 48px;
+  }
+
+  h3 {
+    font-size: 22px;
+  }
+
+  .section-title h2 {
+    font-size: 22px;
+    line-height: 35px;
+  }
+
+  #about .col-md-8 img {
+    padding-right: 0px;
+  }
+
+  #blog-single-post .blog-post-title h2 {
+    font-size: 29px;
+    line-height: 40px;
+  }
+
+  footer {
+    text-align: center;
+  }
+
+  footer .col-md-4 {
+    padding-top: 42px;
+  }
+}
