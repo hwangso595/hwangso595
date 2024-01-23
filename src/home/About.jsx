@@ -18,7 +18,7 @@ const About = () => {
                 />
               </div>
 
-              <div className="col-md-6 col-sm-12" data-aos="fade-up">
+              <div className="col-md-6 col-sm-12 position-relative z-2" data-aos="fade-up">
                 <h4>Developer/ML Enthusiast</h4>
                 <h1>Sung Ha Hwang</h1>
               </div>
