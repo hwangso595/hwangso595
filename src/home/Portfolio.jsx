@@ -53,8 +53,8 @@ const Portfolio = ({ setIsDropdownOpen, limit }) => {
             )}
           </div>
           {limit && (
-            <a className="align-center" href="/portfolio" data-aos="fade-up">
-              <h4>View More <FontAwesomeIcon icon={faLongArrowAltRight}/></h4>
+            <a className="" href="/portfolio" data-aos="fade-up">
+              <h4 className="mt-5">View More <FontAwesomeIcon icon={faLongArrowAltRight}/></h4>
             </a>
           )}
         </div>
