@@ -1,32 +1,32 @@
 const PROJECTS = [
     {
       name: "Culdesac",
-      description: 'Culdesac is a local event-discovery app on Google Play that helps neighbours find events and chat. I built it as the sole engineer: a React Native/Expo client on Supabase, with 15 Deno edge functions, 160+ row-level security policies, and a feed ranked entirely in SQL. Every PR runs about 870 Jest tests, and migrations are checked by pgTAP.',
+      description: 'Culdesac is a local event-discovery app on Google Play that helps neighbours find events and chat. I built it alone, end to end: the Android app, the backend, a personalized event feed, group chat, and daily imports from public event calendars. Every change runs about 870 automated tests before it ships.',
       website: 'https://yourculdesac.com',
       image_src: '/culdesac.jpg',
       flow: [
         { layer: "Client", items: ["Expo React Native app", "React Query + realtime chat"] },
-        { layer: "Supabase", items: ["Auth, Storage, Realtime", "RPCs behind row-level security"] },
+        { layer: "Supabase", items: ["Auth, storage, realtime", "Per-user access rules"] },
         { layer: "Postgres", items: ["SQL feed ranking", "Trigram + geo indexes", "Scheduled jobs"] },
         { layer: "Edge", items: ["Deno edge functions", "Daily event ingestion", "Push + email"] },
         { layer: "Delivery", items: ["GitHub Actions CI", "EAS builds + OTA updates"] },
       ],
       challenges: [
-        { title: "Stable paging while scores change", body: "Dislikes and seen-marks re-score the feed while you scroll, so offset paging shifted rows and silently skipped some. A keyset cursor on score, time and id keeps every unserved row reachable, while older app builds keep the old path." },
+        { title: "Stable paging while scores change", body: "Hiding or viewing a post re-scores the feed while you scroll, so page-number paging shifted rows and silently skipped some. Paging now continues from the last post you saw (a keyset cursor), so nothing is skipped, and older app versions keep working." },
         { title: "Ranking no single post can dominate", body: "Uncapped all-time views let one old listing outrank everything personal. Engagement is now capped, distance decays smoothly instead of a hard radius, and undated events sink." },
         { title: "Ingesting messy public calendars", body: "The city directory refreshes daily from ICS feeds, library calendars, venue sites and open data, each with its own format, time zone and recurrence rules. Each source is a pure, network-free transform under test." },
       ],
     },
     {
       name: "GroceryPulse",
-      description: 'GroceryPulse is a Canadian grocery price index and data API. Scrapers for 22 retail banners (about 160 stores in 13 cities) load roughly 8K prices a week into append-only Postgres, and a chained price index is computed from the full history.',
+      description: 'GroceryPulse is a Canadian grocery price index and data API. Scrapers for 22 retail banners (about 160 stores in 13 cities) load roughly 8K prices a week into append-only Postgres, and a weekly price index is recomputed from the full history.',
       website: 'https://grocerypulse.ca',
       image_src: '/grocerypulse.jpg',
       flow: [
         { layer: "Collect", items: ["Scrapers for 22 banners", "~160 stores, 13 cities"] },
         { layer: "Match", items: ["Tiered SKU matching", "Unit normalization", "Outlier filters"] },
         { layer: "Store", items: ["Append-only Postgres", "Point-in-time snapshots"] },
-        { layer: "Compute", items: ["Chained price index", "Shrinkflation detection"] },
+        { layer: "Compute", items: ["Weekly price index", "Shrinkflation detection"] },
         { layer: "Serve", items: ["Next.js site", "REST data API"] },
       ],
       challenges: [
@@ -37,7 +37,7 @@ const PROJECTS = [
     },
     {
       name: "E-Ink Sync",
-      description: 'An open-source Obsidian plugin (340+ downloads) that syncs reMarkable tablets into Obsidian without the vendor cloud, turning handwriting and PDF highlights into Markdown notes. It is backed by 700+ tests.',
+      description: 'An open-source Obsidian plugin (350+ downloads) that syncs reMarkable tablets into Obsidian without the vendor cloud, turning handwriting and PDF highlights into Markdown notes. It is backed by 700+ tests.',
       github: 'https://github.com/hwangso595/eink-sync',
       image_src: '/einksync.png',
       flow: [
@@ -63,26 +63,26 @@ const PROJECTS = [
         { layer: "Data", items: ["Postgres + vector embeddings", "Atomic RPCs"] },
       ],
       challenges: [
-        { title: "Race-free mutual matching", body: "Two people liking each other at the same instant could each miss the other's like, losing the match. The insert and check now run in one Postgres function under a transaction-scoped advisory lock on the sorted user pair." },
-        { title: "A realtime live-match queue", body: "Feeling Lucky pairs strangers live, so accepts, skips and expiries can collide. Claims are atomic guarded updates using row locks with SKIP LOCKED, and expiry is checked on read with a shared clock-skew grace." },
+        { title: "Race-free mutual matching", body: "Two people liking each other at the same instant could each miss the other's like, so the match never happened. Likes for the same pair of people are now handled one at a time (a Postgres advisory lock), so the match is always made." },
+        { title: "A realtime live-match queue", body: "Feeling Lucky pairs strangers live, so an accept, a skip and a timeout can all hit the same person at once. Each claim locks that person first, so nobody is matched twice, and expired invites are ignored the moment they are read." },
         { title: "Personality-first recommendations", body: "Profiles are embedded with multimodal embeddings, and recommendations blend behavioural signals with personality similarity, so people are matched before photos are shown." },
       ],
     },
     {
       name: "Memome",
-      description: 'Memome is a private memory aid that runs fully on-device on iOS and Android, even offline. You can ask about your notes, photos and places, and a local LLM answers with cited sources from an encrypted store.',
+      description: 'Memome is a private memory aid that runs fully on the phone, even offline. You can ask about your notes, photos and places, and a local AI model answers with cited sources. It is in closed testing on Google Play with 80+ monthly active testers.',
       image_src: '/memome.png',
       flow: [
         { layer: "Capture", items: ["Notes, voice, files", "Photo library"] },
         { layer: "Understand", items: ["Int8 CLIP vectors", "OCR, offline places"] },
-        { layer: "Encrypted store", items: ["SQLCipher", "FTS5 + sqlite-vec"] },
-        { layer: "Retrieve", items: ["Date, text, semantic, visual", "Reciprocal-rank fusion"] },
+        { layer: "Encrypted store", items: ["Encrypted SQLite", "Word + vector indexes"] },
+        { layer: "Retrieve", items: ["Date, word, meaning, photo", "Merged into one ranking"] },
         { layer: "Answer", items: ["llama.cpp local LLM", "Cited evidence only"] },
       ],
       challenges: [
         { title: "Grounded answers from a small LLM", body: "Run raw, a 0.6B model was grounded on 3 of 5 test questions and cited none. The app now does dates, lookups and counts itself and lets the model write only from numbered evidence: 5 of 5 grounded and cited, with answers down from 7 s to 4 s in an emulator benchmark." },
-        { title: "Hybrid search in an encrypted DB", body: "Word matches, text embeddings and CLIP photo vectors live in one SQLCipher database and are merged with reciprocal-rank fusion. EmbeddingGemma 300M won the benchmark with 100% recall@1 against 58%, at about a third of the latency." },
-        { title: "Deletes that really delete", body: "sqlite-vec and FTS5 both keep deleted data around. Vectors are zeroed before deletion, FTS5 secure-delete is on, and bulk removal rewrites the index once, cutting a 100K-photo delete from 216 s to 85 s." },
+        { title: "Hybrid search in an encrypted DB", body: "Search combines exact words, meaning and what a photo looks like, all inside one encrypted on-phone database, and merges the three rankings into one. The embedding model was picked by benchmark: 100% vs 58% top-1 accuracy at about a third of the latency." },
+        { title: "Deletes that really delete", body: "The search indexes quietly kept deleted data around. Deleted entries are now wiped, not just unlinked, and bulk removal rebuilds the index once instead of row by row, cutting a 100K-photo delete from 216 s to 85 s." },
       ],
     },
     {
