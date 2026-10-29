@@ -2,6 +2,7 @@ import React from "react";
 import cgi from "../assets/cgi.jpg";
 import nl from "../assets/nl.jpg";
 import icube from "../assets/icube.jpg";
+import meta from "../assets/meta.svg";
 import "./Work.css";
 
 const Work = () => {
@@ -14,6 +15,31 @@ const Work = () => {
               <h3>Experiences</h3>
               <h4>Here are some places I have worked at.</h4>
             </div>
+            <div className="row">
+              <div className="col-3" data-aos="fade-up">
+                <img src={meta} className="w-100" alt="Meta" />
+              </div>
+
+              <div className="col-9" data-aos="fade-up">
+                <h5>Meta</h5>
+                <div className="row">
+                  <h6 className="col-6">Software Engineer</h6>
+                  <h6 className="col-6 text-end">Jul 2024 - Jul 2026</h6>
+                </div>
+                <p>
+                  On the Modern Recommendation Systems team I worked on ranking
+                  for Facebook, Instagram, and Threads. I launched a Llama-based
+                  quality model in Facebook Feed ranking (+0.0183% global DAU in
+                  a two-week A/B test), saved 77 A100 hosts ($2.86M/year) by
+                  enabling off-peak backfill, built a KNN clustering algorithm
+                  that lifted Threads time spent by 0.32%, and launched an
+                  observability tool for 200+ ML features that grew to 15K views
+                  a month.
+                </p>
+              </div>
+            </div>
+            <hr />
+
             <div className="row">
               <div className="col-3" data-aos="fade-up">
                 <img src={nl} className="w-100" alt="Northern Labs" />
@@ -43,7 +69,7 @@ const Work = () => {
               </div>
 
               <div className="col-9" data-aos="fade-up">
-                <h5>Northern Labs</h5>
+                <h5>ICUBE UTM</h5>
                 <div className="row">
                   <h6 className="col-6">Application Developer Part-time</h6>
                   <h6 className="col-6 text-end">Apr 2022 - Aug 2022</h6>

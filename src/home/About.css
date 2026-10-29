@@ -41,4 +41,5 @@
 #about .profile {
   width: 120%;
   border-radius: 100%;
+  image-rendering: pixelated;
 }
