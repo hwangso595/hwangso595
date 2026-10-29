@@ -18,9 +18,9 @@ const PROJECTS = [
       image_src: '/grocerypulse.jpg',
       diagram: '/diagrams/grocerypulse.svg',
       challenges: [
-        { title: "Fast collection from bot-protected sites", body: "Rendering pages in headless Chromium took about 80 s per request and failed often. A lighter HTTP client with paced throttling and shared retries cut that to 0.7 s, a full run from 358 to 111 minutes, and lifted coverage from 81% to 94%." },
-        { title: "Matching SKUs across catalogs", body: "The same product appears as abbreviated register names, French or English labels, and different pack sizes. A tiered matcher goes from barcodes to brand and pack size to abbreviation expansion, ending in rubric-guided LLM review: 44.6K SKUs matched at 29/30 spot-check precision." },
-        { title: "An index you can trust and revise", body: "Prices are never edited after insert, so one versioned code path can recompute the whole index from history. Publication gates hold back weeks with thin coverage or outlier prices." },
+        { title: "Faster, more reliable collection", body: "Collecting prices through a full browser took about 80 s per request and often failed. A lighter collection approach cut that to 0.7 s, a full weekly run from 6 hours to under 2, and lifted store coverage from 81% to 94%." },
+        { title: "Matching SKUs across catalogs", body: "The same product shows up under abbreviated register names, French or English labels, and different pack sizes. A layered matcher with AI review lifted the share of a client's 44.6K products with a competitor price from 33% to 43.5%, with 29 of 30 spot-checked matches correct." },
+        { title: "An index you can trust and revise", body: "Prices are never edited after insert, so one versioned code path can recompute the whole index from history. Weeks that fail quality checks are held back instead of published." },
       ],
     },
     {
