@@ -2,6 +2,7 @@ import React from "react";
 import cgi from "../assets/cgi.jpg";
 import nl from "../assets/nl.jpg";
 import icube from "../assets/icube.jpg";
+import meta from "../assets/meta.svg";
 import "./Work.css";
 
 const Work = () => {
@@ -14,6 +15,31 @@ const Work = () => {
               <h3>Experiences</h3>
               <h4>Here are some places I have worked at.</h4>
             </div>
+            <div className="row">
+              <div className="col-3" data-aos="fade-up">
+                <img src={meta} className="w-100" alt="Meta" />
+              </div>
+
+              <div className="col-9" data-aos="fade-up">
+                <h5>Meta</h5>
+                <div className="row">
+                  <h6 className="col-6">Software Engineer</h6>
+                  <h6 className="col-6 text-end">Jul 2024 - Jul 2026</h6>
+                </div>
+                <p>
+                  I worked on feed ranking for Facebook, Instagram, and Threads.
+                  I cut $2.86M a year in GPU cost by moving a ranking model's
+                  backfill jobs to off-peak hours, launched a Llama-based
+                  content-quality model in Facebook Feed that raised daily
+                  active users by 0.0183% in a two-week A/B test, built a
+                  clustering step that increased time spent on Threads by
+                  0.32%, and built the initial fast like-bait and comment-bait
+                  classifier, a small model trained to copy Gemini 3.5 Flash.
+                </p>
+              </div>
+            </div>
+            <hr />
+
             <div className="row">
               <div className="col-3" data-aos="fade-up">
                 <img src={nl} className="w-100" alt="Northern Labs" />
@@ -43,7 +69,7 @@ const Work = () => {
               </div>
 
               <div className="col-9" data-aos="fade-up">
-                <h5>Northern Labs</h5>
+                <h5>ICUBE UTM</h5>
                 <div className="row">
                   <h6 className="col-6">Application Developer Part-time</h6>
                   <h6 className="col-6 text-end">Apr 2022 - Aug 2022</h6>
