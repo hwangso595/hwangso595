@@ -18,19 +18,16 @@ const Post = ({ isOpen, onClose, content }) => {
             <div className="offset-md-1 col-md-10 col-sm-12">
               <h1>{content.name}</h1>
               <p>{content.description}</p>
-              {content.flow && (
+              {content.diagram && (
                 <>
                   <h4 className="mt-5">How it works</h4>
-                  <div className="flow">
-                    {content.flow.map((step) => (
-                      <div className="flow-step" key={step.layer}>
-                        <h6>{step.layer}</h6>
-                        {step.items.map((item) => (
-                          <div key={item}>{item}</div>
-                        ))}
-                      </div>
-                    ))}
-                  </div>
+                  <a href={content.diagram} target="_blank" rel="noreferrer">
+                    <img
+                      src={content.diagram}
+                      className="img-fluid my-4"
+                      alt={`${content.name} system design diagram`}
+                    />
+                  </a>
                   <h4>Technical challenges</h4>
                   <div className="row text-start mt-4">
                     {content.challenges.map((c) => (
