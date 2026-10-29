@@ -3,10 +3,6 @@
   z-index: 3;
 }
 
-#side-menu img {
-  image-rendering: pixelated;
-}
-
 @media (max-width: 991px) {
   #side-menu.nav-active {
     transform: translateX(0);

@@ -63,6 +63,51 @@
   animation-duration: 0.5s;
 }
 
+#single-project .flow {
+  display: flex;
+  gap: 28px;
+  margin: 24px 0 48px;
+}
+
+#single-project .flow-step {
+  flex: 1;
+  position: relative;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+#single-project .flow-step:not(:last-child)::after {
+  content: "\2192";
+  position: absolute;
+  right: -22px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
+}
+
+#single-project .flow-step div {
+  background: #f5f5f5;
+  border-radius: 4px;
+  font-size: 13px;
+  margin-top: 6px;
+  padding: 4px 6px;
+}
+
+@media (max-width: 767px) {
+  #single-project .flow {
+    flex-direction: column;
+  }
+
+  #single-project .flow-step:not(:last-child)::after {
+    content: "\2193";
+    right: 50%;
+    top: auto;
+    bottom: -26px;
+    transform: translateX(50%);
+  }
+}
+
 @keyframes modal-animation {
   from {
     opacity: 0;
