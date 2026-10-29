@@ -17,28 +17,20 @@ const Post = ({ isOpen, onClose, content }) => {
           </div>
             <div className="offset-md-1 col-md-10 col-sm-12">
               <h1>{content.name}</h1>
-              <p>{content.description}</p>
-              {content.diagram && (
-                <>
-                  <h4 className="mt-5">How it works</h4>
-                  <a href={content.diagram} target="_blank" rel="noreferrer">
-                    <img
-                      src={content.diagram}
-                      className="img-fluid my-4"
-                      alt={`${content.name} system design diagram`}
-                    />
-                  </a>
-                  <h4>Technical challenges</h4>
-                  <div className="row text-start mt-4">
-                    {content.challenges.map((c) => (
-                      <div className="col-md-4" key={c.title}>
-                        <h6>{c.title}</h6>
-                        <p>{c.body}</p>
-                      </div>
-                    ))}
-                  </div>
-                </>
-              )}
+              {[].concat(content.description).map((p, i) => (
+                <React.Fragment key={i}>
+                  <p className="text-start">{p}</p>
+                  {i === 0 && content.diagram && (
+                    <a href={content.diagram} target="_blank" rel="noreferrer">
+                      <img
+                        src={content.diagram}
+                        className="img-fluid my-4"
+                        alt={`${content.name} system design diagram`}
+                      />
+                    </a>
+                  )}
+                </React.Fragment>
+              ))}
               {content.website && (
                 <a href={content.website}>
                   View Website <FontAwesomeIcon icon={faLongArrowAltRight} />

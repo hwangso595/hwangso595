@@ -1,61 +1,58 @@
 const PROJECTS = [
     {
       name: "Culdesac",
-      description: 'Culdesac is a local event-discovery app on Google Play that helps neighbours find events and chat. I built it alone, end to end: the Android app, the backend, a personalized event feed, group chat, and daily imports from public event calendars. Every change runs about 870 automated tests before it ships.',
+      description: [
+        "Culdesac started with a simple question: what is going on near me this weekend, and who else is going? It is an Android app on Google Play for finding local events and meeting neighbours, and I built all of it myself: the app, the backend, and the pipeline that keeps it full of things to do.",
+        "Every night it pulls public calendars from libraries, venues and city open data, cleans up duplicates, and retires links that have gone dead. When you open the app, your feed is ranked inside the database by what you care about, the groups you have joined, how far away something is and how fresh it is.",
+        "The hardest part was making that feed feel steady. Scores change while you scroll, because hiding or viewing a post re-ranks the rest, and the first version paged by number, so some posts quietly slipped between pages and were never shown. Paging now picks up from the last post you saw, so nothing gets skipped. Ranking needed care too: early on, one old listing with a lot of views could outrank everything personal, so popularity is now capped and distance fades smoothly instead of cutting off at a hard radius.",
+        "Because it is just me, the safety net matters. Every change runs about 870 automated tests before it ships, and fixes that do not touch native code reach phones over the air without waiting on a store release.",
+      ],
       website: 'https://yourculdesac.com',
       image_src: '/culdesac.jpg',
       diagram: '/diagrams/culdesac.svg',
-      challenges: [
-        { title: "Stable paging while scores change", body: "Hiding or viewing a post re-scores the feed while you scroll, so page-number paging shifted rows and silently skipped some. Paging now continues from the last post you saw (a keyset cursor), so nothing is skipped, and older app versions keep working." },
-        { title: "Ranking no single post can dominate", body: "Uncapped all-time views let one old listing outrank everything personal. Engagement is now capped, distance decays smoothly instead of a hard radius, and undated events sink." },
-        { title: "Ingesting messy public calendars", body: "The city directory refreshes daily from ICS feeds, library calendars, venue sites and open data, each with its own format, time zone and recurrence rules. Each source is a pure, network-free transform under test." },
-      ],
     },
     {
       name: "GroceryPulse",
-      description: 'GroceryPulse is a Canadian grocery price index and data API. Scrapers for 22 retail banners (about 160 stores in 13 cities) load roughly 8K prices a week into append-only Postgres, and a weekly price index is recomputed from the full history.',
+      description: [
+        "GroceryPulse tracks what groceries actually cost in Canada. Every week it collects about 8,000 prices from 22 grocery chains across 13 cities and turns them into a price index, a data API, and a portal for clients.",
+        "Two ideas shape it. A price is never edited once it is stored, and each one remembers where it came from, so the index can be recomputed from the full history and any past week reproduced exactly. And nothing goes out blindly: a week that fails its quality checks is held back instead of published.",
+        "Collection was the first wall. The original approach drove a full browser, took about 80 seconds per request, and failed often. Rebuilding it brought requests down to 0.7 seconds, cut a full weekly run from six hours to under two, and lifted store coverage from 81% to 94%.",
+        "The other hard problem is knowing when two products are the same thing. Stores abbreviate names, mix French and English, and sell different pack sizes. For one client, a layered matcher with AI review raised the share of their 44.6K-product catalog with a competitor price from 33% to 43.5%, and 29 of 30 spot-checked matches were right.",
+      ],
       website: 'https://grocerypulse.ca',
       image_src: '/grocerypulse.jpg',
       diagram: '/diagrams/grocerypulse.svg',
-      challenges: [
-        { title: "Faster, more reliable collection", body: "Collecting prices through a full browser took about 80 s per request and often failed. A lighter collection approach cut that to 0.7 s, a full weekly run from 6 hours to under 2, and lifted store coverage from 81% to 94%." },
-        { title: "Matching SKUs across catalogs", body: "The same product shows up under abbreviated register names, French or English labels, and different pack sizes. A layered matcher with AI review lifted the share of a client's 44.6K products with a competitor price from 33% to 43.5%, with 29 of 30 spot-checked matches correct." },
-        { title: "An index you can trust and revise", body: "Prices are never edited after insert, so one versioned code path can recompute the whole index from history. Weeks that fail quality checks are held back instead of published." },
-      ],
     },
     {
       name: "E-Ink Sync",
-      description: 'An open-source Obsidian plugin (350+ downloads) that syncs reMarkable tablets into Obsidian without the vendor cloud, turning handwriting and PDF highlights into Markdown notes. It is backed by 700+ tests.',
+      description: [
+        "I read and mark up papers on a reMarkable tablet, and I wanted those highlights in my Obsidian notes without sending everything through the vendor's cloud. E-Ink Sync is the open-source Obsidian plugin that does it, and it has been downloaded more than 350 times.",
+        "It talks to the tablet directly over your own network and copies only what changed, one file at a time, which matters on the original reMarkable with its 512 MB of memory. A Python step then reads the pen strokes, finds the PDF text under each highlight, and writes a Markdown note with the highlights and page images, leaving whatever you wrote around it untouched.",
+        "The hard part was the file format. Older tablets store strokes in an undocumented binary format that existing libraries cannot read, so I wrote my own parser for it, down to each point's position, pressure and tilt. Highlights were messy too: one underline often arrives as three or four pieces plus one-letter scraps, so a merger stitches them back into clean sentences by page, colour and position. More than 700 tests keep all of it honest.",
+      ],
       github: 'https://github.com/hwangso595/eink-sync',
       image_src: '/einksync.png',
       diagram: '/diagrams/einksync.svg',
-      challenges: [
-        { title: "Parsing undocumented stroke files", body: "Firmware before 3.0 stores strokes in v3/v5 binary files that no library reads. A hand-written parser walks the header, layers, strokes and points, and turns highlighter strokes into boxes used to pull the highlighted text out of the PDF." },
-        { title: "Gentle sync on a 512 MB tablet", body: "Transfers run one file at a time, unchanged documents cost zero extra round trips, and syncing pauses when the tablet runs low on free memory." },
-        { title: "Clean text from fragmented highlights", body: "One underline can arrive as three or four pieces plus one-letter tails. A merger joins pieces by page, colour and spatial overlap, drops duplicates, and reads two-column pages in order." },
-      ],
     },
     {
       name: "Blind Pear",
-      description: 'Blind Pear is a dating app on the App Store: personality first, photos later. I co-built it on Expo and Supabase, including race-free matching and a realtime live-match queue.',
+      description: [
+        "Blind Pear is a dating app built around one idea: personality first, photos later. I co-built it, and it is live on the App Store and Google Play. Recommendations blend how people actually behave in the app with how well their personalities match, and a live mode called Feeling Lucky pairs strangers in real time.",
+        "My favourite bug was a race. If two people liked each other at the same instant, each like checked for the other before it had been saved, both checks came back empty, and the match simply never happened. Now likes between the same two people are handled one at a time, so the second always sees the first and the match is created exactly once.",
+        "Feeling Lucky had the same kind of problem from a different angle: an accept, a skip and a timeout could all land on the same person at once. Each claim now locks that person first, so nobody gets matched twice, and expired invites are ignored the moment they are read.",
+      ],
       image_src: '/blindpear.png',
       diagram: '/diagrams/blindpear.svg',
-      challenges: [
-        { title: "Race-free mutual matching", body: "Two people liking each other at the same instant could each miss the other's like, so the match never happened. Likes for the same pair of people are now handled one at a time (a Postgres advisory lock), so the match is always made." },
-        { title: "A realtime live-match queue", body: "Feeling Lucky pairs strangers live, so an accept, a skip and a timeout can all hit the same person at once. Each claim locks that person first, so nobody is matched twice, and expired invites are ignored the moment they are read." },
-        { title: "Personality-first recommendations", body: "Profiles are embedded with multimodal embeddings, and recommendations blend behavioural signals with personality similarity, so people are matched before photos are shown." },
-      ],
     },
     {
       name: "Memome",
-      description: 'Memome is a private memory aid that runs fully on the phone, even offline. You can ask about your notes, photos and places, and a local AI model answers with cited sources. It is in closed testing on Google Play with 80+ monthly active testers.',
+      description: [
+        "Memome is a private memory aid. You ask it something like \"when did I last go fishing?\" and it answers from your own notes, photos and places, citing where every fact came from. It all runs on the phone, encrypted, and works offline after setup. It is in closed testing on Google Play with more than 80 monthly active testers.",
+        "Models small enough for a phone are not great with facts on their own, so the app does the careful parts itself. It works out the dates in code, searches four ways at once (dates, words, meaning, and what photos look like), merges the results, and hands the model a short list of numbered evidence. The model, fine-tuned for this job, writes only from that evidence.",
+        "Getting there took measuring. Left to itself, a small model gave grounded answers on 3 of 5 test questions and cited none; with the app doing the lookups it was 5 of 5, grounded and cited, and faster. The search model was picked the same way, 100% versus 58% top-1 accuracy on a small benchmark at about a third of the latency. Privacy took real work too: the search indexes quietly kept deleted data around, so deleting now actually wipes it, and removing 100,000 photos went from 216 seconds to 85.",
+      ],
       image_src: '/memome.png',
       diagram: '/diagrams/memome.svg',
-      challenges: [
-        { title: "Grounded answers from a small LLM", body: "Run raw, a 0.6B model was grounded on 3 of 5 test questions and cited none. The app now does dates, lookups and counts itself and lets the model write only from numbered evidence: 5 of 5 grounded and cited, with answers down from 7 s to 4 s in an emulator benchmark." },
-        { title: "Hybrid search in an encrypted DB", body: "Search combines exact words, meaning and what a photo looks like, all inside one encrypted on-phone database, and merges the three rankings into one. The embedding model was picked by benchmark: 100% vs 58% top-1 accuracy at about a third of the latency." },
-        { title: "Deletes that really delete", body: "The search indexes quietly kept deleted data around. Deleted entries are now wiped, not just unlinked, and bulk removal rebuilds the index once instead of row by row, cutting a 100K-photo delete from 216 s to 85 s." },
-      ],
     },
     {
       name: "Indian Poker",
